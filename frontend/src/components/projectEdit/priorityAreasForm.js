@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
-import MapboxDraw from '@mapbox/mapbox-gl-draw';
+// import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import DrawRectangle from 'mapbox-gl-draw-rectangle-mode';
 import MapboxLanguage from '@mapbox/mapbox-gl-language';
 import { FormattedMessage } from 'react-intl';
@@ -12,6 +12,8 @@ import messages from './messages';
 import { StateContext, styleClasses } from '../../views/projectEdit';
 import { Button } from '../button';
 import { MAPBOX_TOKEN, MAP_STYLE, MAPBOX_RTL_PLUGIN_URL } from '../../config';
+
+const MapboxDraw = require('@mapbox/mapbox-gl-draw');
 
 mapboxgl.accessToken = MAPBOX_TOKEN;
 try {
