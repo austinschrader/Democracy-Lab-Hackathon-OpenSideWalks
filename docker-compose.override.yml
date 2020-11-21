@@ -3,10 +3,15 @@ version: '3.4'
 
 x-backend-config: &backend
   build:
-    context: "."
-    dockerfile: "./scripts/docker/Dockerfile.backend"
+    context: '.'
+    dockerfile: './scripts/docker/Dockerfile.backend'
 
 services:
+  # DB
+  postgresql:
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+
   # Main application
   backend:
     <<: *backend
@@ -21,12 +26,12 @@ services:
 
   frontend:
     build:
-      context: "."
-      dockerfile: "./scripts/docker/Dockerfile.frontend"
+      context: '.'
+      dockerfile: './scripts/docker/Dockerfile.frontend'
       args:
         - TM_APP_API_URL=http://localhost/api
     volumes:
-      - ".:/usr/src/app"
+      - '.:/usr/src/app'
     labels:
       - traefik.http.routers.frontend.rule=Host(`localhost`)
       - traefik.http.services.frontend.loadbalancer.server.port=80
