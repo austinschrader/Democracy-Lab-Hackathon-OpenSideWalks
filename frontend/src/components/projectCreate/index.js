@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Redirect } from '@reach/router';
 import { useQueryParam, NumberParam } from 'use-query-params';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
-import MapboxDraw from '@mapbox/mapbox-gl-draw';
+// import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import '@mapbox/mapbox-gl-draw/dist/mapbox-gl-draw.css';
 
 import messages from './messages';
@@ -27,6 +27,8 @@ import { MAX_FILESIZE } from '../../config';
 var tj = require('@mapbox/togeojson');
 var osmtogeojson = require('osmtogeojson');
 var shp = require('shpjs');
+
+const MapboxDraw = require('@mapbox/mapbox-gl-draw');
 
 const aoiPaintOptions = {
   'fill-color': '#00004d',
